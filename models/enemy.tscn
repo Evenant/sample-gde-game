@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b5brbkm28v5g1"]
+
+[node name="enemy" type="Node3D"]
+
+[node name="Center" type="Node3D" parent="."]
+
+[node name="Head" type="Node3D" parent="Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="Head" type="CSGBox3D" parent="Center/Head"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
+size = Vector3(1, 1, 2)
+
+[node name="WingNegX" type="Node3D" parent="Center"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Center/WingNegX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+size = Vector3(5, 1, 1)
+
+[node name="WingPosX" type="Node3D" parent="Center"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Center/WingPosX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
+size = Vector3(5, 1, 1)
+
+[node name="LegNegX" type="Node3D" parent="Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.5, 0)
+
+[node name="LegNegX2" type="Node3D" parent="Center/LegNegX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Center/LegNegX/LegNegX2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+size = Vector3(0.75, 2, 0.75)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Center/LegNegX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(0.75, 2, 0.75)
+
+[node name="LegPosX" type="Node3D" parent="Center"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.5, 0)
+
+[node name="LegPosX2" type="Node3D" parent="Center/LegPosX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Center/LegPosX/LegPosX2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+size = Vector3(0.75, 2, 0.75)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Center/LegPosX"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+size = Vector3(0.75, 2, 0.75)
