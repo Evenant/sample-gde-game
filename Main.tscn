@@ -1,13 +1,36 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpnu84rd1olgn"]
+[gd_scene load_steps=5 format=3 uid="uid://bpnu84rd1olgn"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_x5f55"]
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bqrq2"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_iocot"]
+sky_material = SubResource("ProceduralSkyMaterial_bqrq2")
+
+[sub_resource type="Environment" id="Environment_i4ch1"]
+background_mode = 2
+sky = SubResource("Sky_iocot")
+tonemap_mode = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egf72"]
+albedo_color = Color(0.905882, 0, 0, 1)
 
 [node name="Game" type="Game"]
 process_mode = 3
-script = ExtResource("1_x5f55")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i4ch1")
 
 [node name="World" type="Node3D" parent="."]
-process_mode = 1
+process_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 5, 10)
+current = true
+fov = 90.0
+
+[node name="Rotate" type="CSGBox3D" parent="World"]
+material = SubResource("StandardMaterial3D_egf72")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -17,7 +40,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="UI"]
+[node name="PregameLabel" type="Label" parent="UI"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -25,3 +48,12 @@ anchor_bottom = 1.0
 text = "Loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Debug" type="RichTextLabel" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.3
+anchor_bottom = 1.0
+bbcode_enabled = true
+text = "[color=yellow]Debug Console, press Shift+` to toggle.[/color]
+"

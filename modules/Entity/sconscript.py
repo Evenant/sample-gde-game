@@ -11,4 +11,6 @@ for fd in os.listdir():
         fd.endswith(".cpp"):
         source_files.append(fd)
 
-env.SharedLibrary(f"{env['LIBPREFIX']}{MODULE_NAME}{env['suffix']}{env['SHLIBSUFFIX']}", source=source_files)
+lib = env.SharedLibrary(f"{env['LIBPREFIX']}{MODULE_NAME}{env['suffix']}{env['SHLIBSUFFIX']}", source=source_files)
+
+Return("lib")

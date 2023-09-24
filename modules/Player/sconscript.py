@@ -11,8 +11,4 @@ for fd in os.listdir():
         fd.endswith(".cpp"):
         source_files.append(fd)
 
-env.SharedLibrary(f"{env['LIBPREFIX']}{MODULE_NAME}{env['suffix']}{env['SHLIBSUFFIX']}", source=source_files,
-    LIBS=[
-        f"{env['LIBPREFIX']}Entity{env['suffix']}"
-    ]
-)
+env.SharedLibrary(f"{env['LIBPREFIX']}{MODULE_NAME}{env['suffix']}{env['SHLIBSUFFIX']}", source=source_files, DEPS=env.SConscript("../Entity/sconscript.py", exports="env"))

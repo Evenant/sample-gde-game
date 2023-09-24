@@ -1,23 +1,26 @@
-#ifndef Player_HPP
-#define Player_HPP
+#ifndef Entity_HPP
+#define Entity_HPP
 
 #include "godot_cpp/classes/node.hpp"
 #include "godot_cpp/classes/character_body3d.hpp"
 #include "godot_cpp/classes/input_event.hpp"
-#include "Entity/Entity.hpp"
 namespace godot
 {
 
-class Player : public Entity
+class Entity : public CharacterBody3D
 {
-    GDCLASS(Player, Entity);
+    GDCLASS(Entity, CharacterBody3D);
 
-    Player();
-    ~Player();
+    Entity();
+    ~Entity();
 
     public:
 
-	
+	// Your methods here
+
+	static constexpr int COLLISION_TERRAIN = 1;
+	static constexpr int COLLISION_PLAYER = COLLISION_TERRAIN*2;
+	static constexpr int COLLISION_ENEMY = COLLISION_PLAYER*2;
 
     private:
     static void _bind_methods();
