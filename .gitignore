@@ -1,2 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
+
+*.lib
+*.exp
+*.dll
+*.obj
+
+.sconsign.dblite
+
