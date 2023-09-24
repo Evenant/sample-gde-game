@@ -1,33 +1,97 @@
-[gd_scene format=3 uid="uid://b5brbkm28v5g1"]
+[gd_scene load_steps=4 format=3 uid="uid://b5brbkm28v5g1"]
+
+[sub_resource type="Animation" id="Animation_lpg1t"]
+resource_name = "Default"
+length = 0.001
+tracks/0/type = "rotation_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center/Head")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/1/type = "rotation_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center/WingNegX")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Center/WingPosX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0, 0, 1)
+tracks/3/type = "rotation_3d"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Center/LegNegX")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = PackedFloat32Array(0, 1, -0.109346, -0.257155, -0.0292991, 0.959717)
+tracks/4/type = "rotation_3d"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Center/LegNegX/LegNegX2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = PackedFloat32Array(0, 1, 0.0871557, 0, 0, 0.996195)
+tracks/5/type = "rotation_3d"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Center/LegPosX")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = PackedFloat32Array(0, 1, -0.109346, 0.257155, 0.0292991, 0.959717)
+tracks/6/type = "rotation_3d"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Center/LegPosX/LegPosX2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = PackedFloat32Array(0, 1, 0.0871557, 0, -4.6744e-10, 0.996195)
+
+[sub_resource type="Animation" id="Animation_cl6go"]
+resource_name = "Idle"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wdx5m"]
+_data = {
+"Default": SubResource("Animation_lpg1t"),
+"Idle": SubResource("Animation_cl6go")
+}
 
 [node name="enemy" type="Node3D"]
 
 [node name="Center" type="Node3D" parent="."]
 
 [node name="Head" type="Node3D" parent="Center"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 0.965926, -0.258819, 0, 0.258819, 0.965926, 0, 0.5, 0)
 
 [node name="Head" type="CSGBox3D" parent="Center/Head"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.75)
 size = Vector3(1, 1, 2)
 
 [node name="WingNegX" type="Node3D" parent="Center"]
+transform = Transform3D(0.993066, 0.0792569, -0.0868241, -0.0868241, 0.992404, -0.0871557, 0.0792569, 0.0940898, 0.992404, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Center/WingNegX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0, 0)
+transform = Transform3D(1, 0, 0, -7.45058e-09, 1, -3.72529e-09, 2.98023e-08, -7.45058e-09, 1, -2.5, 0, 0)
 size = Vector3(5, 1, 1)
 
 [node name="WingPosX" type="Node3D" parent="Center"]
+transform = Transform3D(0.993066, -0.0792569, 0.0868241, 0.0868241, 0.992404, -0.0871557, -0.0792569, 0.0940898, 0.992404, 0, 0, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Center/WingPosX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0, 0)
 size = Vector3(5, 1, 1)
 
 [node name="LegNegX" type="Node3D" parent="Center"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, -0.5, 0)
+transform = Transform3D(0.866025, 0.112476, -0.487185, 0, 0.97437, 0.224951, 0.5, -0.194813, 0.843829, -0.3, -0.5, 0)
 
 [node name="LegNegX2" type="Node3D" parent="Center/LegNegX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+transform = Transform3D(1, 0, 0, 0, 0.984808, -0.173648, 0, 0.173648, 0.984808, 0, -1.25, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Center/LegNegX/LegNegX2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
@@ -38,10 +102,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 size = Vector3(0.75, 2, 0.75)
 
 [node name="LegPosX" type="Node3D" parent="Center"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, -0.5, 0)
+transform = Transform3D(0.866025, -0.112476, 0.487185, 0, 0.97437, 0.224951, -0.5, -0.194813, 0.843829, 0.3, -0.5, 0)
 
 [node name="LegPosX2" type="Node3D" parent="Center/LegPosX"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.25, 0)
+transform = Transform3D(1, 9.31322e-10, -8.14802e-11, -9.31323e-10, 0.984808, -0.173648, -8.14802e-11, 0.173648, 0.984808, 2.98023e-08, -1.25, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Center/LegPosX/LegPosX2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
@@ -50,3 +114,10 @@ size = Vector3(0.75, 2, 0.75)
 [node name="CSGBox3D2" type="CSGBox3D" parent="Center/LegPosX"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
 size = Vector3(0.75, 2, 0.75)
+
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wdx5m")
+}
