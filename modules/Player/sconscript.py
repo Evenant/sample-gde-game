@@ -3,7 +3,7 @@ Import("env")
 
 import os
 
-MODULE_NAME="Game"
+MODULE_NAME="Player"
 
 source_files = []
 for fd in os.listdir():
